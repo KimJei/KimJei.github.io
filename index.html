@@ -1,1 +1,39 @@
-html
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<title>페이지 제목</title>
+
+<p id="hello">loading</p>
+<p id="status">상태: </p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+setInterval(function() {
+    $.ajax({
+        type: "GET",
+        url: "api.php",
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            document.getElementById("hello").innerHTML = data.result_code;
+            document.getElementById("status").innerHTML = 'SUCCESS';
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            document.getElementById("status").innerHTML = 'ERR';
+            return;
+        }
+    });
+}, 5000);
+</script>
+
+
+<form action="query.php" method="GET">
+<input type="text" name="text" ></input>
+<input type="hidden" name="hello" value="query"></input>
+
+<button type="submit">완료</button>
+<br>
+<p>chicken님 환영합니다</p>
+<a href="https://readme.biago.ga/logout.php">로그아웃</a>
+</form>
