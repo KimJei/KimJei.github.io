@@ -1,1 +1,31 @@
-테스
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 연습</title>
+</head>
+
+<body>
+    <h1> body 테스트 입니다. </h1>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $.ajax({
+            type: "GET",
+            url: "https://readme.biago.ga/api/meals.php",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                document.getElementById("meals").innerHTML = data.meals;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log("Parsing Script: Failed!");
+                return;
+            }
+        });
+    </script>
+</body>
+
+</html>
