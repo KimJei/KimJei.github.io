@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -18,7 +19,7 @@
             dataType: 'json',
             async: false,
             success: function (data) {
-                document.getElementById("meals").innerHTML = data.meals;
+                alert(data.meals);
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("Parsing Script: Failed!");
